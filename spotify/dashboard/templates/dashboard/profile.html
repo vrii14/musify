@@ -5,6 +5,15 @@
 
 {% block content %}
 	<div class="content-section">
-		<h3>Enter your Spotify Profile-id</h3>
+        <form method="POST" class="form-group" action="">
+			{% csrf_token %}
+            <h3><legend class="border-bottom mb-3">Enter your Spotify Profile-id</legend></h3><br>
+            <p>Your Spotify-Id appears at the end of your profile link i.e, the characters after http://open.spotify.com/user/.<br>
+                For Example in this URL https://open.spotify.com/user/tqx68jpjthjl7crxmye7pi3m8 , the id is "tqx68jpjthjl7crxmye7pi3m8"</p>
+            {{form|crispy}}
+            <input type="text" id="query" value="" class="form-control" placeholder="Enter your id"/>
+            <br><br>
+			<button name="create", type="submit", class="btn btn-success">Search</button>
+		</form>
 	</div>
 {% endblock %}
