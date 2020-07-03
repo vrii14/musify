@@ -1,0 +1,21 @@
+{% extends 'register/base.html' %}
+
+{% block titlte %}Your Dashboard{% endblock %}
+{% load crispy_forms_tags %} 
+
+{% block content %}
+	<div class="content-section">
+		<h3>Welcome to Dashboard</h3>
+    </div>
+    <br>
+    <br>
+      <div class="list-group">  
+        <a href="profile/" class="list-group-item list-group-item-action list-group-item-primary">Profile</a>
+        <a href="search/" class="list-group-item list-group-item-action list-group-item-light">Search</a>
+        <a href="artist/" class="list-group-item list-group-item-action list-group-item-primary">Artist</a>
+        <a href="album/" class="list-group-item list-group-item-action list-group-item-light">Album</a>
+      </div>
+    <br>
+    <br>
+    <a class="btn btn-primary" href="/logout" role="button">Logout</a>
+{% endblock %}

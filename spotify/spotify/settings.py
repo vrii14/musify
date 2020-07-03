@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'register.apps.RegisterConfig',
+    'dashboard.apps.DashboardConfig',
     "crispy_forms",
 ]
 
@@ -124,7 +125,7 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "dashboard/"
 LOGOUT_REDIRECT_URL = "/"
 
 SPOTIFY_CLIENT_ID = config('SPOTIFY_CLIENT_ID', default='')
