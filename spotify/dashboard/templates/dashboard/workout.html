@@ -1,11 +1,11 @@
 {% extends 'register/base.html' %}
 
-{% block titlte %}Hiphop{% endblock %}
+{% block titlte %}Workout{% endblock %}
 {% load crispy_forms_tags %} 
 
 {% block content %}
 	<div class="content-section">
-        <h3>Get Popular HipHop Tracks! </h3>
+        <h3>Get Popular Workout Tracks! </h3>
         <ul class="list-group mb-5"></ul>
             {% for d in data %}
             <a href= {{ d.external_urls.spotify }}> 

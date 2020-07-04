@@ -11,7 +11,7 @@
             {{form|crispy}}
             <input type="text" id="query" value="" class="form-control" placeholder="Enter artist's name" name = 'search'/>
             <br><br>
-			<button name="create", type="submit", class="btn btn-success">Search</button>
+			<button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
 		</form>
 
 
@@ -19,7 +19,6 @@
 			<h1 style="text-align: center;">Results:-</h1>
 			<div class="row">
 				<div class="col-md-4">
-					<center>
 						<div class="containerc">
 						<div class="middle">
 							<h5 class="text">Artist<br/>
@@ -29,7 +28,6 @@
 							<h5 class="text">Popularity percentage:-<br/>{{r.popularity}}</h5>												
 						</div>
 						</div>
-					</center>
 				</div>
 			</div>
 		{% else %}

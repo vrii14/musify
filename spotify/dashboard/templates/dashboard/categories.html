@@ -5,6 +5,15 @@
 
 {% block content %}
 	<div class="content-section">
-		<h3>Get the complete list of categories:- </h3>
+        <h3>Get the complete list of categories:- </h3>
+        <ul class="list-group mb-5"></ul>
+            {% for d in data %}
+            <li class="list-group-item">
+		    {{ d }}
+	        </li>
+	        {% endfor %}
+        </ul>
+
+
 	</div>
-{% endblock %}
+{% endblock %}	
