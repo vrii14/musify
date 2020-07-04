@@ -1,19 +1,42 @@
 {% extends 'register/base.html' %}
 
-{% block titlte %}Profile{% endblock %}
+{% block title %}Profile{% endblock %}
 {% load crispy_forms_tags %} 
 
 {% block content %}
 	<div class="content-section">
-        <form method="POST" class="form-group" action="">
+        <form method="GET" class="form-group" action="">
 			{% csrf_token %}
             <h3><legend class="border-bottom mb-3">Enter your Spotify Profile-id</legend></h3><br>
             <p>Your Spotify-Id appears at the end of your profile link i.e, the characters after http://open.spotify.com/user/.<br>
                 For Example in this URL https://open.spotify.com/user/tqx68jpjthjl7crxmye7pi3m8 , the id is "tqx68jpjthjl7crxmye7pi3m8"</p>
             {{form|crispy}}
-            <input type="text" id="query" value="" class="form-control" placeholder="Enter your id"/>
+            <input type="text" id="query" value="" class="form-control" name = 'search' placeholder="Enter your id"/>
             <br><br>
-			<button name="create", type="submit", class="btn btn-success">Search</button>
-		</form>
+			<button name="create"  type="submit" class="btn btn-success">Search</button>
+        </form>
+        
+
+        {% if flag == "search" %}
+			<h1 style="text-align: center;">Results:-</h1>
+			<div class="row">
+				<div class="col-md-4">
+						<div class="containerc">
+                            <dl>
+                                <dt>User Name:-</dt>
+                                <dd>{{ r.id }}</dd>
+                                <dt>Display Name:-</dt>
+                                <dd>{{ r.display_name }}</dd>
+                                <dt>Followers:-</dt>
+                                <dd>{{ r.followers.total }}</dd>
+                                <dt>Profile:-</dt>
+                                <dd><a href="{{external_urls.spotify}}" target="_blank">{{ r.external_urls.spotify }}</a></dd>
+                            </dl>
+						</div>
+				</div>
+			</div>
+		{% else %}
+			<h1 style="text-align: center;">Search for various Artists in the top search bar.</h1>
+		{% endif %}
 	</div>
 {% endblock %}

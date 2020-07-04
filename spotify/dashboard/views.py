@@ -14,24 +14,47 @@ def dashboard(response):
     return render(response, "dashboard/dashboard.html")
 
 
-def profile(response):
-    return render(response, "dashboard/profile.html")
+def profile(request):
+    r = {}
+    search_term = ""
+    if request.method == "GET":
+        search_term =  request.GET.get('search', 'default')
+        if (search_term != ""):
+            r = spotify.client.get_user_data(search_term)
+            return render(request, 'dashboard/profile.html', {'r': r, "flag": "search"})
+        else:
+            return HttpResponse("Input a value")
 
-def search(response):
-    return render(response, "dashboard/search.html")
 
-def artist(request):
+def search(request):
     r = {}
     if request.method == "GET":
-            search_term =  request.GET.get('search', 'default')
+        query =  request.GET.get('q', 'default')
+        type_q = request.GET.get('type', 'default')
+        r = spotify.client.search(query, type_q)
+        return render(request, 'dashboard/search.html', {'r': r, "flag": "search"})
+        
+def artist(request):
+    r = {}
+    search_term = ""
+    if request.method == "GET":
+        search_term =  request.GET.get('search', 'default')
+        if (search_term != ""):
             r = spotify.client.get_artist(search_term)
-            print(r['followers']['total'])
-            print(r["name"])
-            print(r["popularity"])
-            return render(request, 'dashboard/artist.html', {'data': r, "flag": "search"})
+            return render(request, 'dashboard/artist.html', {'r': r, "flag": "search"})
+        else:
+            return HttpResponse("Input a value")
 
-def album(response):
-    return render(response, "dashboard/album.html")
+def album(request):
+    r = {}
+    search_term = ""
+    if request.method == "GET":
+        search_term =  request.GET.get('search', 'default')
+        if (search_term != ""):
+            r = spotify.client.get_album(search_term)
+            return render(request, 'dashboard/album.html', {'r': r, "flag": "search"})
+        else:
+            return HttpResponse("Input a value")
 
 def recommendation(response):
     return render(response, "dashboard/recommendation.html")

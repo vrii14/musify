@@ -1,6 +1,6 @@
 {% extends 'register/base.html' %}
 
-{% block titlte %}Album{% endblock %}
+{% block title %}Album{% endblock %}
 {% load crispy_forms_tags %} 
 
 {% block content %}
@@ -12,6 +12,34 @@
             <input type="text" id="query" value="" class="form-control" placeholder="Enter album's name" name = 'search'/>
             <br><br>
 			<button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
-		</form>
+        </form>
+        
+        {% if flag == "search" %}
+			<h1 style="text-align: center;">Results:-</h1>
+			<div class="row">
+				<div class="col-md-4">
+						<div class="containerc">
+						<dl>
+							<dt>1. Album Link:-</dt>
+							<dd><a href="{{r.external_urls.spotify}}" target="_blank">{{ r.name }}</a></dd>
+							<dt>2. Album-Type:-</dt>
+							<dd>{{r.album_type}}</dd>
+							<dt>3. Album's Copyrights:-</dt>
+							<dd>{{r.copyrights.0.text}}</dd>
+                            <dt>4. Popularity Percentage:-</dt>
+                            <dd>{{r.popularity}}</dd>
+                            <dt>5. Release Date of Album:-</dt>
+                            <dd>{{r.release_date}}</dd>
+                            <dt>6. Album ID:-</dt>
+							<dd>{{r.id}}</dd>
+                            <dt>7. Album Genres:-</dt>
+							<dd>{{r.genres}}</dd>
+						</dl>
+						</div>
+				</div>
+			</div>
+		{% else %}
+			<h1 style="text-align: center;">Search for various Artists in the top search bar.</h1>
+		{% endif %}
 
 {% endblock %}

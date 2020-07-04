@@ -1,6 +1,6 @@
 {% extends 'register/base.html' %}
 
-{% block titlte %}Search{% endblock %}
+{% block title %}Search{% endblock %}
 {% load crispy_forms_tags %} 
 
 {% block content %}
@@ -16,4 +16,17 @@
         <br><br>
         <button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
     </form>
+
+    {% if flag == "search" %}
+			<h1 style="text-align: center;">Results:-</h1>
+			<div class="row">
+				<div class="col-md-4">
+						<div class="containerc">
+                            <p>{{ r }}</p>
+						</div>
+				</div>
+			</div>
+		{% else %}
+			<h1 style="text-align: center;">Search for various Artists in the top search bar.</h1>
+		{% endif %}
 {% endblock %}

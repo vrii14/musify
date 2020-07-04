@@ -1,6 +1,6 @@
 {% extends 'register/base.html' %}
 
-{% block titlte %}Home{% endblock %}
+{% block title %}Home{% endblock %}
 {% load crispy_forms_tags %} 
 
 {% block content %}
@@ -11,7 +11,7 @@
             {{form|crispy}}
             <input type="text" id="query" value="" class="form-control" placeholder="Enter artist's name" name = 'search'/>
             <br><br>
-			<button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
+			<button type="submit" class="btn btn-success" value="Submit">Search</button>
 		</form>
 
 
@@ -20,13 +20,16 @@
 			<div class="row">
 				<div class="col-md-4">
 						<div class="containerc">
-						<div class="middle">
-							<h5 class="text">Artist<br/>
-							<a class="c" href="{{r.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{r.name}}</a></h5>
-							<h5 class="text">Artist's Followers:-<br/>{{r.followers.total}}</h5>
-							<h5 class="text">Artist's Genres:-<br/>{{r.genres}}</h5>
-							<h5 class="text">Popularity percentage:-<br/>{{r.popularity}}</h5>												
-						</div>
+						<dl>
+							<dt>1. Artist:-</dt>
+							<dd><a href="{{external_urls.spotify}}" target="_blank">{{ r.name }}</a></dd>
+							<dt>2. Artist's Followers:-</dt>
+							<dd>{{r.followers.total}}</dd>
+							<dt>3. Artist's Genres:-</dt>
+							<dd>{{r.genres}}</dd>
+							<dt>4. Popularity percentage:-</dt>
+							<dd>{{r.popularity}}</dd>
+						</dl>
 						</div>
 				</div>
 			</div>
