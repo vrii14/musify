@@ -4,7 +4,14 @@
 {% load crispy_forms_tags %} 
 
 {% block content %}
-	<div class="content-section">
-		<h3>Look for an album's details:</h3>
-	</div>
+    <div class="content-section">
+		<form method="GET" class="form-group" action="">
+			{% csrf_token %}
+            <h3><legend class="border-bottom mb-3">Look for an album's details:</legend></h3><br>
+            {{form|crispy}}
+            <input type="text" id="query" value="" class="form-control" placeholder="Enter album's name" name = 'search'/>
+            <br><br>
+			<button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
+		</form>
+
 {% endblock %}

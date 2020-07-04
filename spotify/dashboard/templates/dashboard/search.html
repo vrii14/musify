@@ -4,7 +4,16 @@
 {% load crispy_forms_tags %} 
 
 {% block content %}
-	<div class="content-section">
-		<h3>Search for a Query:- </h3>
-	</div>
+    <form method="GET" class="form-group" action="">
+        {% csrf_token %}
+        <h3><legend class="border-bottom mb-3">Search for a Query:-</legend></h3><br>
+        {{form|crispy}}
+        <h5>Enter your query</h5>
+        <input type="text" value="" class="form-control" placeholder="any song, album, artist, etc" name = 'q'/>
+        <br><br>
+        <h5>Enter the type of query</h5>
+        <input type="text" value="" class="form-control" placeholder="eg-album, playlist, episode, etc" name = 'type'/>
+        <br><br>
+        <button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
+    </form>
 {% endblock %}
