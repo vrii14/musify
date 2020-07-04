@@ -9,4 +9,9 @@ urlpatterns = [
     path('login/dashboard/search/', views.search, name='search'),
     path('login/dashboard/artist/', views.artist, name='artist'),
     path('login/dashboard/album/', views.album, name='album'),
+    path('login/dashboard/recommendation/', views.recommendation, name='recommendation'),
+    path('login/dashboard/hiphop/', views.hiphop, name='hiphop'),
+    path('login/dashboard/categories/', views.categories, name='categories'),
+
+
 ]

@@ -1,9 +1,8 @@
-from django import forms
-from django.conf import settings
-import requests
 import base64
 import datetime
 from urllib.parse import urlencode
+
+import requests
 
 class SpotifyAPI(object):
     access_token = None
@@ -13,13 +12,17 @@ class SpotifyAPI(object):
     client_secret = None
     token_url = "https://accounts.spotify.com/api/token"
     
-    
+    def __init__(self, client_id, client_secret, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.client_id = client_id
+        self.client_secret = client_secret
+
     def get_client_credentials(self):
         """
         Returns a base64 encoded string
         """
-        client_id = settings.SPOTIFY_CLIENT_ID
-        client_secret = settings.SPOTIFY_CLIENT_SECRET
+        client_id = self.client_id
+        client_secret = self.client_secret
         if client_secret == None or client_id == None:
             raise Exception("You must set client_id and client_secret")
         client_creds = f"{client_id}:{client_secret}"
@@ -151,5 +154,33 @@ class SpotifyAPI(object):
         return r.json()
 
 
+    def get_list_of_categories(self):
+        headers = self.get_resource_header()
+        endpoint = "https://api.spotify.com/v1/browse/categories"
+        r = requests.get(endpoint, headers=headers)
+        if r.status_code not in range(200, 299):  
+            return {}
+        results = r.json()
+        items = results["categories"]["items"]
+        categories = []
+        for k in items:
+            categories.append(k['id'])
+        return categories
 
 
+    def get_a_category_playlist(self, category):
+        headers = self.get_resource_header()
+        endpoint = f"https://api.spotify.com/v1/browse/categories/{category}/playlists"
+        r = requests.get(endpoint, headers=headers)
+        if r.status_code not in range(200, 299):  
+            return {}
+        return r.json()
+
+
+
+
+
+client_id = '6129129e00c14822a29346761c5a0c37'
+client_secret = '0aac18a3e8b5463fb43cd37c34625967'
+
+client = SpotifyAPI(client_id, client_secret)

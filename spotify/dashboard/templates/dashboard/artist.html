@@ -5,6 +5,35 @@
 
 {% block content %}
 	<div class="content-section">
-		<h3>Look for an Artist's details</h3>
+		<form method="GET" class="form-group" action="">
+			{% csrf_token %}
+            <h3><legend class="border-bottom mb-3">Look for an Artist's details</legend></h3><br>
+            {{form|crispy}}
+            <input type="text" id="query" value="" class="form-control" placeholder="Enter artist's name" name = 'search'/>
+            <br><br>
+			<button name="create", type="submit", class="btn btn-success">Search</button>
+		</form>
+
+
+		{% if flag == "search" %}
+			<h1 style="text-align: center;">Results:-</h1>
+			<div class="row">
+				<div class="col-md-4">
+					<center>
+						<div class="containerc">
+						<div class="middle">
+							<h5 class="text">Artist<br/>
+							<a class="c" href="{{r.external_urls.spotify}}" target="_blank" style="text-decoration: none; font-size: 18px;">{{r.name}}</a></h5>
+							<h5 class="text">Artist's Followers:-<br/>{{r.followers.total}}</h5>
+							<h5 class="text">Artist's Genres:-<br/>{{r.genres}}</h5>
+							<h5 class="text">Popularity percentage:-<br/>{{r.popularity}}</h5>												
+						</div>
+						</div>
+					</center>
+				</div>
+			</div>
+		{% else %}
+			<h1 style="text-align: center;">Search for various Artists in the top search bar.</h1>
+		{% endif %}
 	</div>
 {% endblock %}
