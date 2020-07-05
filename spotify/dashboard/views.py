@@ -18,7 +18,7 @@ def profile(request):
     r = {}
     search_term = ""
     if request.method == "GET":
-        search_term =  request.GET.get('search', 'default')
+        search_term =  request.GET.get('search', '  ')
         if (search_term != ""):
             r = spotify.client.get_user_data(search_term)
             return render(request, 'dashboard/profile.html', {'r': r, "flag": "search"})
@@ -29,16 +29,17 @@ def profile(request):
 def search(request):
     r = {}
     if request.method == "GET":
-        query =  request.GET.get('q', 'default')
-        type_q = request.GET.get('type', 'default')
+        query =  request.GET.get('q','  ')
+        type_q = request.GET.get('type', '  ')
         r = spotify.client.search(query, type_q)
-        return render(request, 'dashboard/search.html', {'r': r, "flag": "search"})
+        type_q = type_q.lower()
+        return render(request, 'dashboard/search.html', {'r': r, "flag": "search", 'type_q': type_q})
         
 def artist(request):
     r = {}
     search_term = ""
     if request.method == "GET":
-        search_term =  request.GET.get('search', 'default')
+        search_term =  request.GET.get('search','  ')
         if (search_term != ""):
             r = spotify.client.get_artist(search_term)
             return render(request, 'dashboard/artist.html', {'r': r, "flag": "search"})
@@ -49,15 +50,22 @@ def album(request):
     r = {}
     search_term = ""
     if request.method == "GET":
-        search_term =  request.GET.get('search', 'default')
+        search_term =  request.GET.get('search', '  ')
         if (search_term != ""):
             r = spotify.client.get_album(search_term)
             return render(request, 'dashboard/album.html', {'r': r, "flag": "search"})
         else:
             return HttpResponse("Input a value")
 
-def recommendation(response):
-    return render(response, "dashboard/recommendation.html")
+def recommendation(request):
+    r = {}
+    if request.method == "GET":
+        track_name =  request.GET.get('track','  ')
+        artist_name = request.GET.get('artist', '  ')
+        track_id = spotify.client.get_track_id(track_name)
+        artist_id = spotify.client.get_artist_id(artist_name)
+        r = spotify.client. get_recommendations(artist_id, None, track_id)
+        return render(request, 'dashboard/recommendation.html', {'r': r, "flag": "search"})
 
 def categories(response):
     r = spotify.client.get_list_of_categories()

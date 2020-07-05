@@ -109,6 +109,11 @@ class SpotifyAPI(object):
         album_id = results['albums']['items'][0]['id']
         return(album_id)
     
+    def get_track_id(self, track_name):
+        results = self.search(query = "track:" + track_name, search_type= "track")
+        track_id = results['tracks']['items'][0]['id']
+        return(track_id)
+    
     def base_search(self, query_params): # type
         headers = self.get_resource_header()
         endpoint = "https://api.spotify.com/v1/search"

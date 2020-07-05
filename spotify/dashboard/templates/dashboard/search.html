@@ -22,7 +22,91 @@
 			<div class="row">
 				<div class="col-md-4">
 						<div class="containerc">
-                            <p>{{ r }}</p>
+                        {% if type_q == "artist" %}
+                        <dl>
+							<dt>1. Artist:-</dt>
+							<dd><a href="{{r.artists.items.0.external_urls.spotify}}" target="_blank">{{ r.artists.items.0.name }}</a></dd>
+							<dt>2. Artist's Followers:-</dt>
+							<dd>{{r.artists.items.0.followers.total}}</dd>
+							<dt>3. Artist's ID:-</dt>
+							<dd>{{r.artists.items.0.id}}</dd>
+							<dt>4. Popularity percentage:-</dt>
+							<dd>{{r.artists.items.0.popularity}}</dd>
+							<dt>Artist's Image:- </dt>
+							<img src="{{r.artists.items.0.images.0.url}}" class="rounded">
+						</dl>  
+                        {% elif type_q == "album" %}
+                        <dl>
+                            <dt>1. Album-Name:-</dt>
+							<dd>{{r.artists.items.0.name}}</dd>
+							<dt>2. Album Link:-</dt>
+							<dd><a href="{{r.artists.items.0.external_urls.spotify}}" target="_blank">{{ r.artists.items.0.external_urls.spotify }}</a></dd>
+							<dt>3. Album-Popularity:-</dt>
+							<dd>{{r.artists.items.0.popularity}}</dd>
+                            <dt>4. Album ID:-</dt>
+							<dd>{{r.artists.items.0.id}}</dd>
+                            <dt>Album's Cover-Art:- </dt>
+							<img src="{{r.artists.items.0.images.0.url}}" class="rounded">
+						</dl>
+                        {% elif type_q == "track" %}
+                        <dl>
+                            <dt>1. Track Artist's Name:-</dt>
+							<dd>{{r.artists.items.0.name}}</dd>
+                            <dt>2. Track Link:-</dt>
+							<dd><a href="{{r.artists.items.0.external_urls.spotify}}" target="_blank">{{ r.artists.items.0.external_urls.spotify}}</a></dd>
+							<dt>3. Track's Artist's Followers:-</dt>
+							<dd>{{r.artists.items.0.followers.total}}</dd>
+							<dt>4. Track's Genres:-</dt>
+							<dd>{{r.artists.items.0.genres}}</dd>
+							<dt>5. Popularity percentage:-</dt>
+							<dd>{{r.artists.items.0.popularity}}</dd>
+							<dt>Track's Image:-</dt>
+							<img src="{{r.artists.items.0.images.0.url}}" class="rounded">
+						</dl> 
+                        {% elif type_q == "playlist" %}
+                        <dl>
+                            <dt>1. Playlist-Name:-</dt>
+							<dd>{{r.artists.items.0.name}}</dd>
+							<dt>2. Playlist Link:-</dt>
+							<dd><a href="{{r.artists.items.0.external_urls.spotify}}" target="_blank">{{ r.artists.items.0.external_urls.spotify }}</a></dd>
+							<dt>3. Playlist Genres:-</dt>
+							<dd>{{r.artists.items.0.genres}}</dd>
+                            <dt>4. Playlist ID:-</dt>
+							<dd>{{r.artists.items.0.id}}</dd>
+                            <dt>Playlist Image:- </dt>
+							<img src="{{r.artists.items.0.images.0.url}}" class="rounded">
+						</dl>
+                        {% elif type_q == "show" %}
+                        <dl>
+                            <dt>1. Show's Name:-</dt>
+							<dd>{{r.artists.items.0.name}}</dd>
+							<dt>2. Show Link:-</dt>
+							<dd><a href="{{r.artists.items.0.external_urls.spotify}}" target="_blank">{{ r.artists.items.0.external_urls.spotify }}</a></dd>
+							<dt>3. Show's Description:-</dt>
+							<dd>{{r.artists.items.0.description}}</dd>
+                            <dt>4. Show's ID:-</dt>
+                            <dd>{{r.artists.items.0.id}}</dd>
+                            <dt>5. Show's Available Languages:-</dt>
+							<dd>{{r.artists.items.0.languages}}</dd>
+                            <dt>Show's Cover-Art:- </dt>
+							<img src="{{r.artists.items.0.images.0.url}}" class="rounded">
+						</dl>
+                        {% elif type_q == "episode" %}
+                        <dl>
+                            <dt>1. Episode's Name:-</dt>
+							<dd>{{r.artists.items.0.name}}</dd>
+							<dt>2. Episode's Link:-</dt>
+							<dd><a href="{{r.artists.items.0.external_urls.spotify}}" target="_blank">{{ r.artists.items.0.external_urls.spotify }}</a></dd>
+							<dt>3. Episode's Description:-</dt>
+							<dd>{{r.artists.items.0.description}}</dd>
+                            <dt>4. Episode's Duration:-</dt>
+                            <dd>{{r.artists.items.0.duration_ms}}</dd>
+                            <dt>5. Show's Available Languages:-</dt>
+							<dd>{{r.artists.items.0.languages}}</dd>
+                            <dt>Show's Cover-Art:- </dt>
+                            <img src="{{r.artists.items.0.images.0.url}}" class="rounded">
+                        </dl>
+                        {% endif %}
 						</div>
 				</div>
 			</div>

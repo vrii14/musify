@@ -11,12 +11,40 @@
         <h5>Enter your seed-tracks</h5>
         <input type="text" value="" class="form-control" placeholder="fav tracks" name = 'track'/>
         <br><br>
-        <h5>Enter your seed-genre</h5>
-        <input type="text" value="" class="form-control" placeholder="fav genre" name = 'genre'/>
-        <br><br>
         <h5>Enter your seed-artist</h5>
         <input type="text" value="" class="form-control" placeholder="fav artists" name = 'artist'/>
         <br><br>
         <button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
     </form>
+
+
+    {% if flag == "search" %}
+			<h1 style="text-align: center;">Results:-</h1>
+			<div class="row">
+				<div class="col-md-4">
+						<div class="containerc">
+                            {% for d in r.tracks %}
+                                <dl><h5>Recommended Tracks</h5>
+                                    {% for t in d.artists %}
+                                    <dl><h6>Track's Artists</h6>
+                                        <dd>Artist Name:-</dd>
+                                        <dt>{{ t.name }}</dt>
+                                        <dd>Artist's Profile:-</dd>
+                                        <dt>{{t.external_urls.spotify}}</dt>
+                                    </dl>
+                                    {% endfor %}
+                                    <dd>Track Name:-</dd>
+                                    <dt>{{ d.name }}</dt>
+                                    <dd>Track Duration:-</dd>
+                                    <dt>{{ d.duration_ms }}</dt>
+                                    <dd>Track Link:-</dd>
+                                    <dt>{{ d.external_urls.spotify }}</dt>
+                                </dl>
+                            {% endfor %}
+						</div>
+				</div>
+			</div>
+		{% else %}
+			<h1 style="text-align: center;">Search for various Artists in the top search bar.</h1>
+		{% endif %}
 {% endblock %}

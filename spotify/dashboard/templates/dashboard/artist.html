@@ -1,6 +1,6 @@
 {% extends 'register/base.html' %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Artist Info{% endblock %}
 {% load crispy_forms_tags %} 
 
 {% block content %}
@@ -29,6 +29,8 @@
 							<dd>{{r.genres}}</dd>
 							<dt>4. Popularity percentage:-</dt>
 							<dd>{{r.popularity}}</dd>
+							<dt>Artist's Image:- </dt>
+							<img src="{{r.images.0.url}}" class="rounded">
 						</dl>
 						</div>
 				</div>
