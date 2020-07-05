@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 django
+=======
+django
+>>>>>>> 30fa2202457354575ac5030faf6481f9e82ab81b
 django-crispy-forms
