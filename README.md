@@ -8,3 +8,7 @@ A Basic Web Application using Django which uses Spotify API and its various endp
 2. Create a virtual environment for the project
 3. Do "pip install django" and "pip install django-crispy-forms"
 4. Run the project using command "python manage.py runserver"
+
+
+# Link to my deployed application
+https://musify-sds.herokuapp.com/
