@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -128,5 +127,3 @@ CRISPY_TEMPLATE_PACK="bootstrap4"
 LOGIN_REDIRECT_URL = "dashboard/"
 LOGOUT_REDIRECT_URL = "/"
 
-SPOTIFY_CLIENT_ID = config('SPOTIFY_CLIENT_ID', default='')
-SPOTIFY_CLIENT_SECRET = config('SPOTIFY_CLIENT_SECRET', default='')
