@@ -23,24 +23,21 @@
 			<div class="row">
 				<div class="col-md-4">
 						<div class="containerc">
+                             <h5>Recommended Tracks</h5>
+                            <table style="width:100%">
+                            <tr>
+                                <th>Track Name</th>
+                                <th>Track Duration in ms</th>
+                                <th>Track Link</th>
+                            </tr>
                             {% for d in r.tracks %}
-                                <dl><h5>Recommended Tracks</h5>
-                                    {% for t in d.artists %}
-                                    <dl><h6>Track's Artists</h6>
-                                        <dd>Artist Name:-</dd>
-                                        <dt>{{ t.name }}</dt>
-                                        <dd>Artist's Profile:-</dd>
-                                        <dt>{{t.external_urls.spotify}}</dt>
-                                    </dl>
-                                    {% endfor %}
-                                    <dd>Track Name:-</dd>
-                                    <dt>{{ d.name }}</dt>
-                                    <dd>Track Duration:-</dd>
-                                    <dt>{{ d.duration_ms }}</dt>
-                                    <dd>Track Link:-</dd>
-                                    <dt>{{ d.external_urls.spotify }}</dt>
-                                </dl>
+                            <tr>
+                                    <td>{{ d.name }}</td>
+                                    <td>{{ d.duration_ms }}</td>
+                                    <td><a href="{{d.external_urls.spotify}}">{{ d.external_urls.spotify }}</a></td>
+                            </tr>
                             {% endfor %}
+                        </table>
 						</div>
 				</div>
 			</div>
