@@ -5,15 +5,22 @@
 
 {% block content %}
 	<div class="content-section">
-        <h3>Get the complete list of categories:- </h3>
-        <ul class="list-group mb-5"></ul>
-            {% for d in data %}
-            <li class="list-group-item">
-		    {{ d }}
-	        </li>
-	        {% endfor %}
-        </ul>
-
-
+        <div class="containerc">
+                <h5>Categories</h5>
+                <table style="width:100%">
+                <tr>
+                    <th>Category Name</th>
+                    <th>Category Icon</th>
+                    <th>Category Link</th>
+                </tr>
+                {% for d in r %}
+                <tr>
+                        <td>{{ d.id }}</td>
+                        <td><img src="{{ d.icons.0.url }}" width="80" height="80"></td>
+                        <td><a href="{{d.href}}">{{ d.href }}</a></td>
+                </tr>
+                {% endfor %}
+                </table>
+        </div>
 	</div>
 {% endblock %}	
