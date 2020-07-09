@@ -167,10 +167,7 @@ class SpotifyAPI(object):
             return {}
         results = r.json()
         items = results["categories"]["items"]
-        categories = []
-        for k in items:
-            categories.append(k['id'])
-        return categories
+        return items
 
 
     def get_a_category_playlist(self, category):
