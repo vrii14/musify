@@ -69,7 +69,7 @@ def recommendation(request):
 
 def categories(response):
     r = spotify.client.get_list_of_categories()
-    return render(response, "dashboard/categories.html", {'data':r})
+    return render(response, "dashboard/categories.html", {'r':r})
 
 
 def hiphop(response):
