@@ -11,4 +11,5 @@ A Basic Web Application using Django which uses Spotify API and its various endp
 
 
 # Link to my deployed application
-https://musify-sds.herokuapp.com/
+https://musify-sds.herokuapp.com/  
+The deployed application is the basic version. For seeing the updated project perform the cloning and running in your local machine.
