@@ -8,10 +8,10 @@
         {% csrf_token %}
         <h3><legend class="border-bottom mb-3">Get Recommendations based on your seed tracks and genre!</legend></h3><br>
         {{form|crispy}}
-        <h5>Enter your seed-tracks</h5>
+        <h5>Enter your favorite track</h5>
         <input type="text" value="" class="form-control" placeholder="fav tracks" name = 'track'/>
         <br><br>
-        <h5>Enter your seed-artist</h5>
+        <h5>Enter your favorite-artist</h5>
         <input type="text" value="" class="form-control" placeholder="fav artists" name = 'artist'/>
         <br><br>
         <button name="submit", type="Submit", class="btn btn-success", value="Submit">Search</button>
