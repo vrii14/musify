@@ -17,23 +17,23 @@ A Basic Web Application using Django which uses Spotify API and its various endp
 
 Registration                  |                   Login
 :---------------------------------:        |      :------------------------------:
-<img src="screenshots/register.png" height="200">  | <img src="screenshots/Login.png" height="200">
+<img src="screenshots/register.PNG" height="200">  | <img src="screenshots/Login.PNG" height="200">
 
 Dashboard                   
-<img src="screenshots/dashboard.png" height="200">     
+<img src="screenshots/dashboard.PNG" height="200">     
 
 Search Query            |                   Search Query Result
 :---------------------------------:        |      :------------------------------:
-<img src="screenshots/search query.png" height="200">     |<img src="screenshots/search result.png" height="200">
+<img src="screenshots/search query.PNG" height="200">     |<img src="screenshots/search result.PNG" height="200">
 
 Artist Details Query                |                   Artist Details Result
 :---------------------------------:        |      :------------------------------:
-<img src="screenshots/artist query.png" height="200" >     |<img src="screenshots/artist details.png" height="200"  >
+<img src="screenshots/artist query.PNG" height="200" >     |<img src="screenshots/artist details.PNG" height="200"  >
 
 Recommendations Query               |             Recommendations Result 
 :---------------------------------:        |      :------------------------------:
-<img src="screenshots/Reccomendation query.png" width="200" height="100">     |<img src="screenshots/Recommendations.png" width="600">
+<img src="screenshots/Reccomendation query.PNG" width="200" height="100">     |<img src="screenshots/Recommendations.PNG" width="600">
 
 Workout Track                |                   Hiphop Track
 :---------------------------------:        |      :------------------------------:
-<img src="screenshots/Workout Tracks.png" height="200" >     |<img src="screenshots/Hiphon tracks.png" height="200"  >
+<img src="screenshots/Workout Tracks.PNG" height="200" >     |<img src="screenshots/Hiphon tracks.PNG" height="200"  >
